@@ -12,14 +12,6 @@ from ser_com_list import serial_ports as sp
 motion_audio_playing = False
 plc = LED(21)
 
-while 1:
-	print('onnnnnn')
-	plc.on()
-	time.sleep(1)
-	plc.off()
-	print('offfff')
-	time.sleep(1)
-
 
 print("Avalable port", sp()[0])
 ser = serial.Serial(
