@@ -127,12 +127,15 @@ while 1:
 				es()
 			if(x[0] == '1'):
 				print('unlock')
-				plc.on()
-				time.sleep(3)
-				plc.off()
-				
+				print('finger print access', check_fp_access())
+				if check_fp_access():
+					plc.on()
+					time.sleep(3)
+					plc.off()
+				else:
+					print('Finger Print Access denied. Time out of index.')
 			print('.............................................')
-			print('finger print access', check_fp_access())
+			
 		elif(key_ == 'pwr'):
 			pwr = x[0]
 			if pwr != '':
