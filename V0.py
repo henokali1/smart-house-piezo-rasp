@@ -125,17 +125,15 @@ while 1:
 			if(x[0] == '2'):
 				print('Sending Email')
 				es()
-			if(x[0] == '1'):
+			if((x[0] == '1') and (check_fp_access())):
 				print('unlock')
-				print('finger print access', check_fp_access())
-				if check_fp_access():
-					plc.on()
-					time.sleep(3)
-					plc.off()
-				else:
-					print('Finger Print Access denied. Time out of index.')
+				print(check_fp_access())
+				plc.on()
+				time.sleep(3)
+				plc.off()
+				
 			print('.............................................')
-			
+			print('finger print access', check_fp_access())
 		elif(key_ == 'pwr'):
 			pwr = x[0]
 			if pwr != '':
